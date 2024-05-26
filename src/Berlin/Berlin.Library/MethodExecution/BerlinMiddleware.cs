@@ -1,9 +1,7 @@
 using System.Text;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
 
-namespace Berlin.Library;
+namespace Berlin.Library.MethodExecution;
 
 public class BerlinMiddleware
 {

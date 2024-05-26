@@ -1,4 +1,4 @@
-namespace Berlin.Library;
+namespace Berlin.Library.MethodExecution;
 
 public class BerlinConfig
 {

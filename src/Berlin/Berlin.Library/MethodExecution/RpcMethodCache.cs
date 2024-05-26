@@ -1,8 +1,7 @@
-using System.Collections.Concurrent;
 using System.Reflection;
 using Microsoft.Extensions.Logging;
 
-namespace Berlin.Library;
+namespace Berlin.Library.MethodExecution;
 
 // "Name" is the name of the class and the method, so e.g. UserService.GetUsers
 public record RpcMethodCacheEntry(string Name, MethodInfo Method);

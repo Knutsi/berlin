@@ -1,5 +1,6 @@
 using Berlin.ExampleServer.Business;
 using Berlin.Library;
+using Berlin.Library.MethodExecution;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,11 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddSingleton<BerlinConfig>((_) => new BerlinConfig
-{
-    RpcUrlRoutePrefix = "/api/rpc"
-});
-builder.Services.AddSingleton<RpcMethodCache>();
+builder.Services.AddBerlin();
 
 builder.Services.AddScoped<GameService>();
 
@@ -26,7 +23,7 @@ if (app.Environment.IsDevelopment())
 }
 
 // add middleware to handle RPC requests:
-app.AddBerlin();
+app.UseBerlin();
 
 app.UseHttpsRedirection();
 
