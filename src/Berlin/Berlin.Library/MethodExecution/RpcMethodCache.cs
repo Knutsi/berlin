@@ -4,7 +4,6 @@ using Microsoft.Extensions.Logging;
 namespace Berlin.Library.MethodExecution;
 
 // "Name" is the name of the class and the method, so e.g. UserService.GetUsers
-public record RpcMethodCacheEntry(string Name, MethodInfo Method);
 
 public class RpcMethodCache
 {
@@ -25,7 +24,7 @@ public class RpcMethodCache
                 if (rpcAttribute == null) continue;
                 
                 var name = classType.Name + "." + method.Name;
-                _methods[name] = new (name, method);
+                _methods[name] = new (name, classType.Name, method);
             }
         }
         logger.LogInformation("RPC reflection done. Loaded {Count} RPC methods in {Elapsed} ms", 

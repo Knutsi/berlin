@@ -1,3 +1,4 @@
+using Berlin.Library.MethodListing;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -12,6 +13,7 @@ public static class BerlinInstaller
         services.AddSingleton(config());
         services.AddSingleton<RpcMethodCache>();
         services.AddSingleton<ServiceInvoker>();
+        services.AddSingleton<RpcListRenderer>();
         
         return services;
     }
