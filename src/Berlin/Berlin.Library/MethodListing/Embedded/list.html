@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>RPC Methods</title>
+    <link href=https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap rel=stylesheet>
+    <link href=https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css rel=stylesheet>
+    <style>
+        body {font-family: 'Roboto', sans-serif;}
+    </style>
+    <script>
+        async function callMethod(url) {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            const data = await response.json();
+            document.getElementById('result').textContent = JSON.stringify(data, null, 2);
+        }
+    </script>
+</head>
+<body class=p-6 bg-gray-50>
+<table class=min-w-full divide-y divide-gray-200 shadow-sm rounded-lg overflow-hidden>
+    <thead class=bg-gray-200>
+    <tr>
+        <th class="px-4 py-2 text-left">ServiceName</th>
+        <th class="px-4 py-2 text-left">Method</th>
+        <th class="px-4 py-2 text-left">Params</th>
+        <th class="px-4 py-2 text-left">Returns</th>
+    </tr>
+    </thead>
+    <tbody class=bg-white divide-y divide-gray-200>
+    {rows}
+    </tbody>
+</table>
+<pre id=result class=p-6 mt-6 bg-white rounded shadow-sm></pre>
+</body>
+</html>

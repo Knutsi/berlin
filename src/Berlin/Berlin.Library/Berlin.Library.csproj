@@ -10,4 +10,9 @@
         <PackageReference Include="Microsoft.AspNetCore.App" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="MethodListing\Embedded\list.html" />
+      <EmbeddedResource Include="MethodListing\Embedded\list.html" />
+    </ItemGroup>
+
 </Project>
